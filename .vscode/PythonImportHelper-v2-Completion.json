@@ -1,0 +1,73 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "Table",
+        "kind": 6,
+        "importPath": "build.lib.main",
+        "description": "build.lib.main",
+        "peekOfCode": "class Table:\n    # current_directory = os.getcwd()\n    def __init__(self, tableName, *column) -> None:\n        self.TableName = tableName\n        self.column = column\n        self.folder_path = os.path.join(\n            os.getcwd(), \"Data\")\n        self.file_path = self.folder_path + '/' + self.TableName + '.csv'\n        print(\"Table Created Successfully\", self.file_path)\n    def commit(self):",
+        "detail": "build.lib.main",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "kind": 5,
+        "importPath": "build.lib.main",
+        "description": "build.lib.main",
+        "peekOfCode": "func = Table\n# student = Table(\"A\", \"ID\", \"NAME\", \"EMAIL\")\n# student22 = Table(\"B\", \"ID\", \"NAME\", \"EMAIL\")\n# student.commit()\n# student22.commit()\n# student22.rename(\"C\")\n# student.rename(\"C\")  # fixing THIS\n# # student.insert(\"443\", \"Azaz Ahmed\", \"lipuahmed@gmail.com\")\n# # student22.insert(\"443\", \"Azaz Ahmed\", \"lipuahmed@gmail.com\")\n# # student.get()",
+        "detail": "build.lib.main",
+        "documentation": {}
+    },
+    {
+        "label": "Table",
+        "kind": 6,
+        "importPath": "src.gulistandb",
+        "description": "src.gulistandb",
+        "peekOfCode": "class Table:\n    # current_directory = os.getcwd()\n    def __init__(self, tableName, *column) -> None:\n        self.TableName = tableName\n        self.column = column\n        self.folder_path = os.path.join(\n            os.getcwd(), \"Data\")\n        self.file_path = self.folder_path + '/' + self.TableName + '.csv'\n        print(\"Table Created Successfully\", self.file_path)\n    def commit(self):",
+        "detail": "src.gulistandb",
+        "documentation": {}
+    }
+]

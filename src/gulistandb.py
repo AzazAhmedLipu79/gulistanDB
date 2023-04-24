@@ -1,7 +1,3 @@
-# print("https://github.com/kriasoft/Folder-Structure-Conventions")
-
-""" This File For Table Create  """
-
 import os
 import pandas as pd
 import time
@@ -118,21 +114,3 @@ class Table:
     def delete(self, _primary_id):
         """ DELETE  """
         pass
-
-
-# student = Table("A", "ID", "NAME", "EMAIL")
-
-# student22 = Table("B", "ID", "NAME", "EMAIL")
-# student.commit()
-# student22.commit()
-# student22.rename("C")
-# student.rename("C")  # fixing THIS
-# # student.insert("443", "Azaz Ahmed", "lipuahmed@gmail.com")
-# # student22.insert("443", "Azaz Ahmed", "lipuahmed@gmail.com")
-
-# # student.get()
-# # student.read()
-
-# # student.update(444, "8")
-# for i, j in enumerate(student.__dir__()):
-#     student.insert(f'{i+1}.\t{j}\n')

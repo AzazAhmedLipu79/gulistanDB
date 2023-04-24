@@ -1,0 +1,95 @@
+1/ Choosing File Type - Where Data / Information will Saved (Csv,Txt,Tsv,db)
+SELECTED: CSV 
+2/ WorkFlow Decide 
+
+"""
+Progress: 
+Create Table
+Delete Table
+Rename Table
+Read/Get Table
+Insert
+Read 
+
+"""
+
+STEP 01- 
+Create Table - tableName.CSV
+
+
+Drop Table
+Rename Table 
+Export Table 
+------------------
+
+Table Actions:
+
+
+
+Insert
+Read
+Update
+** IMPLEMENT DELETE AND UPDATE
+
+-------------------
+Table Column Actions: 
+
+Update Column
+Delete Column
+Add Column
+-------------------
+
+Table -> Records -> Values Type Validation
+
+
+Number
+String
+Boolean
+Null
+*Array/List
+*Object/Dict
+*Enum
+
+---------------
+
+Constraint
+
+Not Null
+Unique 
+Primary Key 
+DEFAULT
+
+--------------
+
+
+
+1.	TableName
+It's tablename based on tablename filename will be elected. must be Unique
+
+2.	column
+Header or Column name
+
+3.	__module__
+
+4.	__init__
+
+5.	commit
+To Make FIle in data folder
+
+6.	rename
+to rename tablename
+
+7.	drop
+to delete table
+
+8.	read
+to read csv file
+parameter "dict" dictionary output
+
+9.	get
+
+follow 8
+
+10.	insert
+
+to insert record in table
