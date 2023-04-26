@@ -9,30 +9,60 @@
         "documentation": {}
     },
     {
+        "label": "fileInit",
+        "importPath": "editor",
+        "description": "editor",
+        "isExtraImport": true,
+        "detail": "editor",
+        "documentation": {}
+    },
+    {
+        "label": "fileInit",
+        "importPath": "editor",
+        "description": "editor",
+        "isExtraImport": true,
+        "detail": "editor",
+        "documentation": {}
+    },
+    {
+        "label": "reader",
+        "importPath": "reader",
+        "description": "reader",
+        "isExtraImport": true,
+        "detail": "reader",
+        "documentation": {}
+    },
+    {
+        "label": "reader",
+        "importPath": "reader",
+        "description": "reader",
+        "isExtraImport": true,
+        "detail": "reader",
+        "documentation": {}
+    },
+    {
+        "label": "writter",
+        "importPath": "writter",
+        "description": "writter",
+        "isExtraImport": true,
+        "detail": "writter",
+        "documentation": {}
+    },
+    {
+        "label": "writter",
+        "importPath": "writter",
+        "description": "writter",
+        "isExtraImport": true,
+        "detail": "writter",
+        "documentation": {}
+    },
+    {
         "label": "pandas",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "pandas",
         "description": "pandas",
         "detail": "pandas",
-        "documentation": {}
-    },
-    {
-        "label": "time",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "time",
-        "description": "time",
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "csv",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "csv",
-        "description": "csv",
-        "detail": "csv",
         "documentation": {}
     },
     {
@@ -44,21 +74,57 @@
         "documentation": {}
     },
     {
-        "label": "Table",
-        "kind": 6,
-        "importPath": "build.lib.main",
-        "description": "build.lib.main",
-        "peekOfCode": "class Table:\n    # current_directory = os.getcwd()\n    def __init__(self, tableName, *column) -> None:\n        self.TableName = tableName\n        self.column = column\n        self.folder_path = os.path.join(\n            os.getcwd(), \"Data\")\n        self.file_path = self.folder_path + '/' + self.TableName + '.csv'\n        print(\"Table Created Successfully\", self.file_path)\n    def commit(self):",
-        "detail": "build.lib.main",
+        "label": "fileInit",
+        "kind": 2,
+        "importPath": "build.lib.editor",
+        "description": "build.lib.editor",
+        "peekOfCode": "def fileInit(file_type: str, file_path: str, columns: list):\n    \"\"\" \n        Create a new file of the specified type if it doesn't exist, and write a header row if the file is a CSV.\n    Args:\n        file_type: A string representing the type of file to create. Valid options are 'json' and 'csv'.\n        file_path: A string representing the path to the file to create.\n        columns: A list of strings representing the CSV column names to write to the file.\n    Returns:\n        None.\n    Raises:",
+        "detail": "build.lib.editor",
         "documentation": {}
     },
     {
-        "label": "func",
+        "label": "Table",
+        "kind": 6,
+        "importPath": "build.lib.gulistandb",
+        "description": "build.lib.gulistandb",
+        "peekOfCode": "class Table:\n    def __init__(self, tableName: str, *column, **fileType) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:\n        None.",
+        "detail": "build.lib.gulistandb",
+        "documentation": {}
+    },
+    {
+        "label": "SUPPORTED_DATA_TYPES",
         "kind": 5,
-        "importPath": "build.lib.main",
-        "description": "build.lib.main",
-        "peekOfCode": "func = Table\n# student = Table(\"A\", \"ID\", \"NAME\", \"EMAIL\")\n# student22 = Table(\"B\", \"ID\", \"NAME\", \"EMAIL\")\n# student.commit()\n# student22.commit()\n# student22.rename(\"C\")\n# student.rename(\"C\")  # fixing THIS\n# # student.insert(\"443\", \"Azaz Ahmed\", \"lipuahmed@gmail.com\")\n# # student22.insert(\"443\", \"Azaz Ahmed\", \"lipuahmed@gmail.com\")\n# # student.get()",
-        "detail": "build.lib.main",
+        "importPath": "build.lib.gulistandb",
+        "description": "build.lib.gulistandb",
+        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv', 'txt', 'json']\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
+        "detail": "build.lib.gulistandb",
+        "documentation": {}
+    },
+    {
+        "label": "reader",
+        "kind": 2,
+        "importPath": "build.lib.reader",
+        "description": "build.lib.reader",
+        "peekOfCode": "def reader(fileType: str, file_path: str, Oformat: str):\n    \"\"\"\n    Read data from a file and return a Pandas DataFrame or a dictionary of records, depending on the specified output format.\n    Args:\n        fileType: A string representing the type of file to read. Valid options are 'json' and 'csv'.\n        file_path: A string representing the path to the file to read.\n        Oformat: A string representing the output format. Valid options are 'df' (for DataFrame) and 'dict'.\n    Returns:\n        A Pandas DataFrame if Oformat is 'df', or a dictionary of records if Oformat is 'dict'.\n    Raises:",
+        "detail": "build.lib.reader",
+        "documentation": {}
+    },
+    {
+        "label": "writter",
+        "kind": 2,
+        "importPath": "build.lib.writter",
+        "description": "build.lib.writter",
+        "peekOfCode": "def writter(file_path, fileType, datas):\n    \"\"\"\n    Writes the provided data to the specified file in either JSON or CSV format.\n    Args:\n        file_path (str): The path to the file to be written to.\n        fileType (str): The type of file to write. Must be either \"json\" or \"csv\".\n        datas (list): The data to be written to the file. Must be a list of dictionaries.\n    Returns:\n        int: -1 on failure, 0 on success.\n    Raises:",
+        "detail": "build.lib.writter",
+        "documentation": {}
+    },
+    {
+        "label": "fileInit",
+        "kind": 2,
+        "importPath": "src.editor",
+        "description": "src.editor",
+        "peekOfCode": "def fileInit(file_type: str, file_path: str, columns: list):\n    \"\"\" \n        Create a new file of the specified type if it doesn't exist, and write a header row if the file is a CSV.\n    Args:\n        file_type: A string representing the type of file to create. Valid options are 'json' and 'csv'.\n        file_path: A string representing the path to the file to create.\n        columns: A list of strings representing the CSV column names to write to the file.\n    Returns:\n        None.\n    Raises:",
+        "detail": "src.editor",
         "documentation": {}
     },
     {
@@ -66,8 +132,62 @@
         "kind": 6,
         "importPath": "src.gulistandb",
         "description": "src.gulistandb",
-        "peekOfCode": "class Table:\n    # current_directory = os.getcwd()\n    def __init__(self, tableName, *column) -> None:\n        self.TableName = tableName\n        self.column = column\n        self.folder_path = os.path.join(\n            os.getcwd(), \"Data\")\n        self.file_path = self.folder_path + '/' + self.TableName + '.csv'\n        print(\"Table Created Successfully\", self.file_path)\n    def commit(self):",
+        "peekOfCode": "class Table:\n    def __init__(self, tableName: str, *column, **fileType) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:\n        None.",
         "detail": "src.gulistandb",
+        "documentation": {}
+    },
+    {
+        "label": "SUPPORTED_DATA_TYPES",
+        "kind": 5,
+        "importPath": "src.gulistandb",
+        "description": "src.gulistandb",
+        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv', 'txt', 'json']\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
+        "detail": "src.gulistandb",
+        "documentation": {}
+    },
+    {
+        "label": "reader",
+        "kind": 2,
+        "importPath": "src.reader",
+        "description": "src.reader",
+        "peekOfCode": "def reader(fileType: str, file_path: str, Oformat: str):\n    \"\"\"\n    Read data from a file and return a Pandas DataFrame or a dictionary of records, depending on the specified output format.\n    Args:\n        fileType: A string representing the type of file to read. Valid options are 'json' and 'csv'.\n        file_path: A string representing the path to the file to read.\n        Oformat: A string representing the output format. Valid options are 'df' (for DataFrame) and 'dict'.\n    Returns:\n        A Pandas DataFrame if Oformat is 'df', or a dictionary of records if Oformat is 'dict'.\n    Raises:",
+        "detail": "src.reader",
+        "documentation": {}
+    },
+    {
+        "label": "writter",
+        "kind": 2,
+        "importPath": "src.writter",
+        "description": "src.writter",
+        "peekOfCode": "def writter(file_path, fileType, datas):\n    \"\"\"\n    Writes the provided data to the specified file in either JSON or CSV format.\n    Args:\n        file_path (str): The path to the file to be written to.\n        fileType (str): The type of file to write. Must be either \"json\" or \"csv\".\n        datas (list): The data to be written to the file. Must be a list of dictionaries.\n    Returns:\n        int: -1 on failure, 0 on success.\n    Raises:",
+        "detail": "src.writter",
+        "documentation": {}
+    },
+    {
+        "label": "SUPPORTED_DATA_TYPES",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv', 'txt']\n# current_directory = os.getcwd()\n# def a(tableName: str, *column, **fileType) -> None:\n#     # File Type, Default File Type Csv\n#    # pfileType = (fileType in SUPPORTED_DATA_TYPES &\n#     #            fileType.get('fileType', 'csv')) or 'csv'\n#     sfileType = fileType.get('fileType', 'csv') if fileType.get(\n#         'fileType', 'csv') in SUPPORTED_DATA_TYPES else 'csv'\n#     print(sfileType)\n# a('ss')",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "l",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "l = \"C:\\\\Users\\\\Lipu\\\\OneDrive\\\\Desktop\\\\GulistanDB\\\\Data\\\\AMARDBT.json\"\n# # Load the existing JSON file into a Pandas DataFrame\n# df = pd.read_json('/path/to/json/file.json')\n# # Append new data to the DataFrame\n# new_data = {'name': 'David', 'age': 40}\n# df = df.append(data, ignore_index=True)\n# # Write the updated DataFrame to a new JSON file\n# df.to_json('/path/to/new/json/file.json', orient='records')\n# with open(l, 'r') as file:\n#     data = file.read()",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "thisdict",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "thisdict = {\n    \"brand\": \"Ford\",\n    \"model\": \"Mustang\",\n    \"year\": 1964,\n    \"year\": 2020\n}\nprint(len(thisdict))",
+        "detail": "test",
         "documentation": {}
     }
 ]

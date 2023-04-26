@@ -1,12 +1,12 @@
 from setuptools import setup
 
 
-with open('README.md', 'r') as f:
+with open('README.md', 'r', encoding='utf-16') as f:
     long_description = f.read()
 
 setup(
     name='gulistandb',
-    version='0.0.2',
+    version='0.0.5',
     install_requires=[
         'pandas',
         # add more dependencies as needed
