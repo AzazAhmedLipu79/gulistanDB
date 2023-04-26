@@ -1,0 +1,78 @@
+<h2>Welcome To GulistanDB 👋</h2>
+<p>
+  GulistanDB is a simple Python-based local database for small-scale projects.
+  With GulistanDB, users can create, drop, and rename tables, insert records,
+  and read data without needing knowledge of SQL. The package automatically
+  creates a 'data' folder within the current working directory to store the CSV
+  files. Created with beginners in mind, GulistanDB is easy to use and perfect
+  for those who want to manage their data without dealing with complex
+  databases.
+</p>
+<h2>How to INSTALL</h2>
+<p>Install GulistanDB</p>
+<pre><code class="language-python">  pip install gulistandb
+</code></pre>
+<h2>Usage/Examples</h2>
+<pre><code class="language-python">from gulistandb import Table
+
+
+Book_Library = Table('Book_Library_NY', 'BookName','ISBN','BookPAGES', fileType='json')
+
+
+
+</code></pre>
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Example</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rename</td>
+      <td>xyzDB.rename(NewfileName, fileType=Optional)</td>
+      <td>Rename the table to a new name and/or a new file type</td>
+    </tr>
+    <tr>
+      <td>drop</td>
+      <td>xyzDB.drop()</td>
+      <td>Deletes the file containing the table data, if it exists</td>
+    </tr>
+    <tr>
+      <td>read</td>
+      <td>xyzDB.read(OutputFormat:optional='dict')</td>
+      <td>Read the table data from the file and return it as a string</td>
+    </tr>
+    <tr>
+      <td>get</td>
+      <td>xyzDB.get()</td>
+      <td>Same As Read But Slow and Manual Process</td>
+    </tr>
+    <tr>
+      <td>insert</td>
+      <td>xyzDB.insert(datas)</td>
+      <td>Inserts new data into the table file</td>
+    </tr>
+    <tr>
+      <td>UPDATE</td>
+      <td><em>_</em></td>
+      <td>Coming Soon</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td><em>_</em></td>
+      <td>Coming Soon</td>
+    </tr>
+  </tbody>
+</table>
+<h2>License</h2>
+<p><a href="https://choosealicense.com/licenses/mit/">MIT</a></p>
+<h2>Screenshots</h2>
+<p><img src="https://i.ibb.co/rkBtqXy/gddb.png" alt="App Screenshot" /></p>
+<h2>Support</h2>
+<p>
+  For support, email
+  <a href="mailto:lipuahmedazaz79@gmail.com">lipuahmedazaz79@gmail.com</a>.
+</p>
