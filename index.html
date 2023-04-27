@@ -1,23 +1,114 @@
-<h2>Welcome To GulistanDB 👋</h2>
+<h2 id="welcome-to-gulistandb-👋">Welcome To GulistanDB 👋</h2>
 <p>
   GulistanDB is a simple Python-based local database for small-scale projects.
   With GulistanDB, users can create, drop, and rename tables, insert records,
   and read data without needing knowledge of SQL. The package automatically
-  creates a 'data' folder within the current working directory to store the CSV
+  creates a &#39;data&#39; folder within the current working directory to store
+  the CSV files. Created with beginners in mind, GulistanDB is easy to use and
+  perfect for those who want to manage their data without dealing with complex
+  databases.
+</p>
+<p>
+  Gulistandb is a Python package that simplifies file interaction for
+  small-scale projects where using SQL or NoSQL databases is too time-consuming.
+  It allows users to create, read, insert, and delete data in CSV or JSON files,
+  which are stored in a Data folder in the current working directory. Gulistandb
+  is not a database, but it tries to behave like one.
+</p>
+<p>
+  This Python library that lets you create local databases using CSV or JSON
+  files. It is designed for small-scale projects that do not require complex
+  queries or operations. You can use it to store any kind of data, such as user
+  information, product details, inventory records, etc. GulistanDB is also ideal
+  for beginners who want to learn how to work with data in Python without having
+  to install or configure anything. All you need is to import the Table class
+  from gulistandb and start creating your tables. GulistanDB will automatically
+  create a ‘data’ folder in your current working directory and save your data
+  there. You can then perform basic operations such as inserting, reading,
+  deleting, and renaming your tables. GulistanDB is not a full-fledged database,
+  but it tries to behave like one. It is a simple and convenient solution for
+  your data needs.
+</p>
+<p>
+  It is a simple Python-based local database for small-scale projects. With
+  GulistanDB, users can create, drop, and rename tables, insert records, and
+  read data without needing knowledge of SQL. The package automatically creates
+  a &#39;data&#39; folder within the current working directory to store the CSV
   files. Created with beginners in mind, GulistanDB is easy to use and perfect
   for those who want to manage their data without dealing with complex
   databases.
 </p>
-<h2>How to INSTALL</h2>
+<p>GulistanDB can be used for:</p>
+<ul>
+  <li>
+    <p>
+      Developing and testing applications that require a local database without
+      installing SQL Server or other complex databases
+    </p>
+  </li>
+  <li>
+    <p>
+      Storing and managing data for small-scale projects that do not need high
+      performance or scalability
+    </p>
+  </li>
+  <li>
+    <p>
+      Learning and experimenting with database concepts and operations using CSV
+      or JSON files
+    </p>
+  </li>
+  <li>
+    <p>
+      Creating and manipulating data tables with simple Python commands and
+      syntax
+    </p>
+  </li>
+  <li>
+    <p>
+      Migrating data from CSV or JSON files to Azure SQL Database or other cloud
+      databases easily
+    </p>
+  </li>
+  <li>
+    <p>Storing and retrieving configuration settings for your application</p>
+  </li>
+  <li><p>Saving and loading user preferences and profiles</p></li>
+  <li><p>Logging and analyzing data from sensors or devices</p></li>
+  <li><p>Creating and updating inventory lists or product catalogs</p></li>
+  <li><p>Generating and exporting reports or charts</p></li>
+  <li><p>Data analysis and visualization</p></li>
+  <li><p>Web scraping and crawling</p></li>
+  <li><p>Machine learning and AI</p></li>
+  <li><p>Testing and debugging</p></li>
+</ul>
+<p>
+  Are you looking for a simple and fast way to store and manage your data in
+  Python? Do you want to avoid the hassle of setting up and learning SQL or
+  other databases? If so, you might be interested in GulistanDB, a Python
+  package that lets you create local databases using CSV or JSON files.
+  GulistanDB is designed for small-scale projects that do not require complex
+  queries or operations. You can use it to store any kind of data, such as user
+  information, product details, inventory records, etc. GulistanDB is also ideal
+  for beginners who want to learn how to work with data in Python without having
+  to install or configure anything. All you need is to import the Table class
+  from gulistandb and start creating your tables. GulistanDB will automatically
+  create a &#39;data&#39; folder in your current working directory and save your
+  data there. You can then perform basic operations such as inserting, reading,
+  deleting, and renaming your tables. GulistanDB is not a full-fledged database,
+  but it tries to behave like one. It is a simple and convenient solution for
+  your data needs. To learn more about GulistanDB and how to use it, please
+  visit azazahmedlipu79.github.io/gulistanDB/.
+</p>
+<h2 id="how-to-install">How to INSTALL</h2>
 <p>Install GulistanDB</p>
 <pre><code class="language-python">  pip install gulistandb
 </code></pre>
-<h2>Usage/Examples</h2>
+<h2 id="usageexamples">Usage/Examples</h2>
 <pre><code class="language-python">from gulistandb import Table
 
 
-Book_Library = Table('Book_Library_NY', 'BookName','ISBN','BookPAGES', fileType='json')
-
+Book_Library = Table(&#39;Book_Library_NY&#39;, &#39;BookName&#39;,&#39;ISBN&#39;,&#39;BookPAGES&#39;, fileType=&#39;json&#39;)
 
 
 </code></pre>
@@ -42,7 +133,7 @@ Book_Library = Table('Book_Library_NY', 'BookName','ISBN','BookPAGES', fileType=
     </tr>
     <tr>
       <td>read</td>
-      <td>xyzDB.read(OutputFormat:optional='dict')</td>
+      <td>xyzDB.read(OutputFormat:optional=&#39;dict&#39;)</td>
       <td>Read the table data from the file and return it as a string</td>
     </tr>
     <tr>
@@ -56,23 +147,31 @@ Book_Library = Table('Book_Library_NY', 'BookName','ISBN','BookPAGES', fileType=
       <td>Inserts new data into the table file</td>
     </tr>
     <tr>
+      <td>clear</td>
+      <td>xyzDB.clear()</td>
+      <td>To clear table file&#39;s Data</td>
+    </tr>
+    <tr>
       <td>UPDATE</td>
-      <td><em>_</em></td>
+      <td>___</td>
       <td>Coming Soon</td>
     </tr>
     <tr>
       <td>DELETE</td>
-      <td><em>_</em></td>
+      <td>___</td>
       <td>Coming Soon</td>
     </tr>
   </tbody>
 </table>
-<h2>License</h2>
-<p><a href="https://choosealicense.com/licenses/mit/">MIT</a></p>
-<h2>Screenshots</h2>
-<p><img src="https://i.ibb.co/rkBtqXy/gddb.png" alt="App Screenshot" /></p>
-<h2>Support</h2>
+<h2 id="license">License</h2>
+<p><a href="/License">MIT</a></p>
+<h2 id="screenshots">Screenshots</h2>
+<p><img src="https://i.ibb.co/n7mPbNh/gdb.png" alt="App Screenshot" /></p>
+<h2 id="support">Support</h2>
 <p>
   For support, email
-  <a href="mailto:lipuahmedazaz79@gmail.com">lipuahmedazaz79@gmail.com</a>.
+  <a
+    href="mailto:&#108;&#105;&#x70;&#117;&#x61;&#104;&#x6d;&#x65;&#x64;&#97;&#122;&#x61;&#x7a;&#55;&#x39;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;"
+    >&#108;&#105;&#x70;&#117;&#x61;&#104;&#x6d;&#x65;&#x64;&#97;&#122;&#x61;&#x7a;&#55;&#x39;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a
+  >.
 </p>

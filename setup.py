@@ -6,7 +6,7 @@ with open('README.md', 'r', encoding='utf-16') as f:
 
 setup(
     name='gulistandb',
-    version='0.0.5',
+    version='0.0.6',
     install_requires=[
         'pandas',
         # add more dependencies as needed

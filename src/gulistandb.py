@@ -4,12 +4,12 @@ from reader import reader
 from writter import writter
 
 
-SUPPORTED_DATA_TYPES = ['csv', 'txt', 'json']
+SUPPORTED_DATA_TYPES = ['csv',   'json']
 
 
 class Table:
 
-    def __init__(self, tableName: str, *column, **fileType) -> None:
+    def __init__(self, tableName: str, *column, **fileType: str) -> None:
         """
     Initialize a new table with the specified name, columns and file type.
 
@@ -30,6 +30,7 @@ class Table:
 
         self.TableName = tableName
         self.column = column
+        self.__isCalled = False
         # File Type, Default File Type Csv
         self.fileType = fileType.get('fileType', 'csv').lower() if fileType.get(
             'fileType', 'csv') in SUPPORTED_DATA_TYPES else 'csv'
@@ -40,7 +41,10 @@ class Table:
 
         print(
             f"GulistanDB:\t\033[1;32mTable initialized successfully!\n{self.file_path}\033[0m")
-        self.__commit()
+        if not os.path.exists(self.folder_path):
+            self.__commit()
+            return None
+        print("ReInitilized")
 
     def __commit(self):
         self.file_path = f'{os.path.join(os.getcwd(), "Data")}/{self.TableName}.{self.fileType}'
@@ -56,7 +60,7 @@ class Table:
         print(
             f"GulistanDB:\t\033[1;33m{self.TableName} created successfully!\n{self.file_path}\033[0m")
 
-    def rename(self, newName, **fileType):
+    def rename(self, newName: str, **fileType: str):
         """
     Rename the table to a new name and/or a new file type.
 
@@ -148,6 +152,10 @@ class Table:
         with open(self.file_path, 'r') as file:
             data = file.read()
             return (data)
+
+    def clear(self):
+        fileInit(self.fileType, self.file_path, self.column)
+        return 0
 
     def insert(self, *datas):
         """
