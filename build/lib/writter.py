@@ -2,7 +2,7 @@
 import pandas as pd
 
 
-def writter(file_path, fileType, datas):
+def writter(file_path: str, fileType: str, datas: list):
     """
     Writes the provided data to the specified file in either JSON or CSV format.
 

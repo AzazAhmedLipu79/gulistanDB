@@ -2,6 +2,7 @@ import os
 from editor import fileInit
 from reader import reader
 from writter import writter
+# from src.gulistandb import BOOK_LIB
 
 
 SUPPORTED_DATA_TYPES = ['csv',   'json']
@@ -153,8 +154,10 @@ class Table:
             data = file.read()
             return (data)
 
-    def clear(self):
+    def clear(self, ClrTable):
         fileInit(self.fileType, self.file_path, self.column)
+        if ClrTable == True:
+            self.TableName = ""
         return 0
 
     def insert(self, *datas):

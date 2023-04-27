@@ -163,6 +163,129 @@ Book_Library = Table(&#39;Book_Library_NY&#39;, &#39;BookName&#39;,&#39;ISBN&#39
     </tr>
   </tbody>
 </table>
+<h2 id="methodopedia">Methodopedia</h2>
+<h3 id="create-table">Create Table:</h3>
+<h6 id="to-create-a-table">To Create A Table</h6>
+<pre><code class="language-python"># Table(&lt;Table Name&gt;, &lt;*columns&gt;, &lt;**fileType: optional&gt;)
+  BOOK_LIB = Table(&#39;MyBookDB&#39;,&#39;ID&#39;,&#39;Name&#39;,&#39;Pages&#39; fileType=&#39;json&#39;)
+</code></pre>
+<ol>
+  <li>
+    The Table() class takes a table name, column names, and an optional fileType
+    as arguments.
+  </li>
+  <li>
+    When called, it creates a new table with the provided name and columns (in
+    the order they were provided), and saves it in JSON or CSV format, depending
+    on the file type specified. If no file type is specified, the default format
+    is CSV.
+  </li>
+  <li>
+    The table is saved in a &#39;Data&#39; folder in the current directory.
+  </li>
+</ol>
+<h3 id="rename">Rename:</h3>
+<h6 id="to-rename-the-table">To Rename The Table</h6>
+<pre><code class="language-python"># BOOK_LIB.rename(newName: str, **fileType: optional)
+  BOOK_LIB.rename(&#39;OurBookDB&#39;)
+</code></pre>
+<ol>
+  <li>
+    The rename() method of a Table object takes a new name as an argument to
+    rename the table.
+  </li>
+  <li>
+    If the optional argument fileType is provided, it will also change the
+    format of the table file to the new type. If no file type is provided, the
+    table will be renamed with its current file type.
+  </li>
+  <li>
+    Note: that this method will delete the previous file and create a new file
+    with the new name and format(if provided), so be sure to use it carefully.
+  </li>
+</ol>
+<h3 id="drop">Drop:</h3>
+<h6 id="to-delete-the-table-file">To Delete The Table File</h6>
+<pre><code class="language-python">BOOK_LIB.drop()
+</code></pre>
+<ol>
+  <li>
+    The drop() method of a Table object deletes the file containing the
+    table&#39;s data. Use this method with caution, as it will permanently
+    delete the table file and all its contents, with no option for recovery.
+  </li>
+</ol>
+<h3 id="read">Read</h3>
+<pre><code class="language-python"># BOOK_LIB.read(Oformat:optional=&#39;dict&#39;)
+
+BOOK_LIB.read(Oformat=&#39;dict&#39;)
+</code></pre>
+<ol>
+  <li>
+    The read() method is called on a Table object to return the table&#39;s data
+    in either dictionary or Pandas DataFrame format.
+  </li>
+  <li>
+    By default, the method returns the data in the table&#39;s file type format,
+    but you can optionally specify a different output format using the Oformat
+    argument (e.g. Oformat=&#39;dict&#39;).
+  </li>
+  <li>
+    Note that because this method uses Pandas, it is a very fast way to overview
+    the data
+  </li>
+</ol>
+<h3 id="get">Get</h3>
+<pre><code class="language-python">BOOK_LIB.get()
+</code></pre>
+<p>
+  1.The get() method of a Table object returns all the data in the table. Note
+  that this is a manual process, so it may be slow for large tables.
+</p>
+<h3 id="clear">Clear</h3>
+<pre><code class="language-python">BOOK_LIB.clear()
+</code></pre>
+<ol>
+  <li>
+    The clear() method is called on a Table object to erase all data in its file
+    and reset the file name to its default.
+  </li>
+  <li>
+    You can also provide the optional argument ClrTable=True to clear the table
+    name as well, which may be necessary in some exceptional cases.
+  </li>
+</ol>
+<h3 id="insert">Insert:</h3>
+<h6 id="to-insert-data">To Insert Data</h6>
+<pre><code class="language-python">#For Insert In Json File
+BOOK_LIB.insert({&#39;ID&#39;: &#39;101&#39;, &#39;Name&#39;: &#39;Atomic Habits&#39;, &#39;Pages&#39;: &#39;327&#39;})
+#For Insert In Csv File
+BOOK_LIB.insert(&#39;ID&#39;: &#39;101&#39;, &#39;Name&#39;: &#39;Atomic Habits&#39;, &#39;Pages&#39;: &#39;327&#39;)
+</code></pre>
+<ol>
+  <li>
+    The insert() method is called on a Table object to add a single record (row)
+    to the file.
+  </li>
+  <li>
+    The format of the record must be in the appropriate format for the
+    table&#39;s file type (e.g. JSON or CSV), and the length of the data being
+    inserted must match the number of columns in the table and be in the correct
+    order.
+  </li>
+  <li>
+    For JSON files, pass a dictionary to the method containing key-value pairs
+    representing the column names and data for the new record.
+  </li>
+  <li>
+    For CSV files, pass a string with the column data separated by commas in the
+    same order as the table&#39;s columns.
+  </li>
+</ol>
+<h4 id="update">UPDATE</h4>
+<p>Coming Soon...</p>
+<h4 id="delete-record">DELETE RECORD</h4>
+<p>Coming Soon...</p>
 <h2 id="license">License</h2>
 <p><a href="/License">MIT</a></p>
 <h2 id="screenshots">Screenshots</h2>
@@ -171,7 +294,7 @@ Book_Library = Table(&#39;Book_Library_NY&#39;, &#39;BookName&#39;,&#39;ISBN&#39
 <p>
   For support, email
   <a
-    href="mailto:&#108;&#105;&#x70;&#117;&#x61;&#104;&#x6d;&#x65;&#x64;&#97;&#122;&#x61;&#x7a;&#55;&#x39;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;"
-    >&#108;&#105;&#x70;&#117;&#x61;&#104;&#x6d;&#x65;&#x64;&#97;&#122;&#x61;&#x7a;&#55;&#x39;&#x40;&#103;&#109;&#97;&#105;&#x6c;&#46;&#99;&#111;&#109;</a
+    href="mailto:&#108;&#x69;&#112;&#117;&#97;&#x68;&#109;&#101;&#100;&#97;&#x7a;&#97;&#122;&#55;&#57;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;"
+    >&#108;&#x69;&#112;&#117;&#97;&#x68;&#109;&#101;&#100;&#97;&#x7a;&#97;&#122;&#55;&#57;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a
   >.
 </p>
