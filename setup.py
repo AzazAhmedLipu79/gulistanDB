@@ -6,7 +6,7 @@ with open('README.md', 'r', encoding='utf-16') as f:
 
 setup(
     name='gulistandb',
-    version='0.0.6',
+    version='0.0.10',
     install_requires=[
         'pandas',
         # add more dependencies as needed
@@ -20,6 +20,6 @@ setup(
     license='MIT',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/AzazAhmedLipu79/GuliStan_DB',
+    url='https://github.com/AzazAhmedLipu79/gulistanDB/',
     python_requires='>=3'
 )

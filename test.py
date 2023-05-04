@@ -56,4 +56,4 @@ thisdict = {
     "year": 1964,
     "year": 2020
 }
-print(len(thisdict))
+print(len("222"))

@@ -66,6 +66,14 @@
         "documentation": {}
     },
     {
+        "label": "verifier",
+        "importPath": "verifier",
+        "description": "verifier",
+        "isExtraImport": true,
+        "detail": "verifier",
+        "documentation": {}
+    },
+    {
         "label": "setup",
         "importPath": "setuptools",
         "description": "setuptools",
@@ -96,7 +104,7 @@
         "kind": 5,
         "importPath": "build.lib.gulistandb",
         "description": "build.lib.gulistandb",
-        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv',   'json']\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType: str) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
+        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv', 'json']\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType: str) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
         "detail": "build.lib.gulistandb",
         "documentation": {}
     },
@@ -141,7 +149,16 @@
         "kind": 5,
         "importPath": "src.gulistandb",
         "description": "src.gulistandb",
-        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv',   'json']\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType: str) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
+        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv', 'json']\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType: str) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
+        "detail": "src.gulistandb",
+        "documentation": {}
+    },
+    {
+        "label": "h",
+        "kind": 5,
+        "importPath": "src.gulistandb",
+        "description": "src.gulistandb",
+        "peekOfCode": "h = Table('hDB', 'a', 'b', fileType='json')\nh.commit()\nh.insert_one({'a': 'Python Diye Data Stucture', 'b': '2'})\nh.insert_many({'a': 'Python Diye Data Stucture', 'b': '3'}, {\n              'a': 'Python Diye Data Stucture', 'b': '4'}, {'a': 'Python Diye Data Stucture', 'b': '5'}, {'a': 'Python Diye Data Stucture', 'c': '6'})\n \"\"\"",
         "detail": "src.gulistandb",
         "documentation": {}
     },
@@ -152,6 +169,15 @@
         "description": "src.reader",
         "peekOfCode": "def reader(fileType: str, file_path: str, Oformat: str):\n    \"\"\"\n    Read data from a file and return a Pandas DataFrame or a dictionary of records, depending on the specified output format.\n    Args:\n        fileType: A string representing the type of file to read. Valid options are 'json' and 'csv'.\n        file_path: A string representing the path to the file to read.\n        Oformat: A string representing the output format. Valid options are 'df' (for DataFrame) and 'dict'.\n    Returns:\n        A Pandas DataFrame if Oformat is 'df', or a dictionary of records if Oformat is 'dict'.\n    Raises:",
         "detail": "src.reader",
+        "documentation": {}
+    },
+    {
+        "label": "verifier",
+        "kind": 2,
+        "importPath": "src.verifier",
+        "description": "src.verifier",
+        "peekOfCode": "def verifier(data: dict, columns: tuple) -> bool:\n    if set(data.keys()) != set(columns):\n        print(f\"Dataset {data} keys are not the same as {columns}\")\n        return False\n    else:\n        print(f\"Dataset {data} format PASSED successfully\")\n        return True",
+        "detail": "src.verifier",
         "documentation": {}
     },
     {
@@ -186,7 +212,7 @@
         "kind": 5,
         "importPath": "test",
         "description": "test",
-        "peekOfCode": "thisdict = {\n    \"brand\": \"Ford\",\n    \"model\": \"Mustang\",\n    \"year\": 1964,\n    \"year\": 2020\n}\nprint(len(thisdict))",
+        "peekOfCode": "thisdict = {\n    \"brand\": \"Ford\",\n    \"model\": \"Mustang\",\n    \"year\": 1964,\n    \"year\": 2020\n}\nprint(len(\"222\"))",
         "detail": "test",
         "documentation": {}
     }

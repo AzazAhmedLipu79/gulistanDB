@@ -24,7 +24,7 @@ def writter(file_path: str, fileType: str, datas: list):
         try:
             existing_df = pd.read_json(file_path, encoding='utf-8')
         except:
-            print("CHECK IF THIS FILE EXIST & Have atlest []")
+            print("1. Check If this FILE & 'DATA FOLDER Exists\n  unless use .commit()method for genarating those Things\n2.If the File Exists then lookup that atleast this json file Have a `[]`")
             return -1
         # Create a new DataFrame from the data to append
         new_data = datas

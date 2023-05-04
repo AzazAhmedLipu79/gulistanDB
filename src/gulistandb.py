@@ -2,10 +2,10 @@ import os
 from editor import fileInit
 from reader import reader
 from writter import writter
-# from src.gulistandb import BOOK_LIB
+from verifier import verifier
 
 
-SUPPORTED_DATA_TYPES = ['csv',   'json']
+SUPPORTED_DATA_TYPES = ['csv', 'json']
 
 
 class Table:
@@ -31,7 +31,7 @@ class Table:
 
         self.TableName = tableName
         self.column = column
-        self.__isCalled = False
+        self.mode = True
         # File Type, Default File Type Csv
         self.fileType = fileType.get('fileType', 'csv').lower() if fileType.get(
             'fileType', 'csv') in SUPPORTED_DATA_TYPES else 'csv'
@@ -42,12 +42,16 @@ class Table:
 
         print(
             f"GulistanDB:\t\033[1;32mTable initialized successfully!\n{self.file_path}\033[0m")
-        if not os.path.exists(self.folder_path):
-            self.__commit()
-            return None
-        print("ReInitilized")
+        # if self.mode == True:
+        #     self.commit()
+        #     return None
+        # print("ReInitilized")
 
-    def __commit(self):
+    # def commit_mode(self, mode=False):
+    #     self.mode = mode
+    #     print(self.mode)
+
+    def commit(self):
         self.file_path = f'{os.path.join(os.getcwd(), "Data")}/{self.TableName}.{self.fileType}'
         try:
             if not os.path.exists(self.folder_path):
@@ -92,7 +96,7 @@ class Table:
         self.TableName = newName
         # if fileType:
         #     self.fileType = fileType.get('fileType', csv)
-        self.__commit()
+        self.commit()
         print(
             f"GulistanDB:\t\033[1;33mFile Name REPLACED successfully!\n{self.file_path}\033[0m")
 
@@ -160,7 +164,7 @@ class Table:
             self.TableName = ""
         return 0
 
-    def insert(self, *datas):
+    def insert_one(self, data: dict):
         """
     Inserts new data into the table file.
 
@@ -177,19 +181,33 @@ class Table:
         t = Table('users', 'id', 'name', 'email', fileType='csv')
         t.insert(('1', 'John Doe', 'john.doe@example.com') ('2', 'Jane Smith', 'jane.smith@example.com'))
     """
-        print(datas)
-        if len(datas[0]) == len(self.column) and self.fileType == 'json':
 
-            writter(self.file_path, self.fileType, datas)
-            return 'SUCCESSED'
-        elif len(datas) == len(self.column) and self.fileType == 'csv':
-            writter(self.file_path, self.fileType, datas)
+        # if len(datas[0]) == len(self.column) and self.fileType == 'json':
+
+        #     writter(self.file_path, self.fileType, datas)
+        #     return 'SUCCESSED'
+
+        if self.fileType == 'json' and isinstance(data, dict):
+            data_status = verifier(data, self.column)
+            if data_status:
+                writter(self.file_path, self.fileType, data)
+                return 'SUCCESSED'
+            print("FAILED")
+            return 'Failed'
+        elif self.fileType == 'csv' and len(data) == len(self.column):
+            # len(datas) == len(self.column) and
+            writter(self.file_path, self.fileType, data)
 
         else:
             print(
-                f"GulistandDB:\t\033[1;31mPlease provide input data that is similar in quantity and order to the columns in your table.\nYour table has {len(self.column)} columns, but you provided {len(datas)} columns.\033[0m")
+                f"FORMAT ERROR")
+
+    def insert_many(self, *datas):
+        for data in datas:
+            self.insert_one(data)
 
 # NOT IMPLEMENTED YET
+
     def __update(self, _primary_id, content):
         """ UPDATE """
         pass
@@ -198,3 +216,12 @@ class Table:
     def __delete(self, _primary_id):
         """ DELETE  """
         pass
+
+
+""" 
+h = Table('hDB', 'a', 'b', fileType='json')
+h.commit()
+h.insert_one({'a': 'Python Diye Data Stucture', 'b': '2'})
+h.insert_many({'a': 'Python Diye Data Stucture', 'b': '3'}, {
+              'a': 'Python Diye Data Stucture', 'b': '4'}, {'a': 'Python Diye Data Stucture', 'b': '5'}, {'a': 'Python Diye Data Stucture', 'c': '6'})
+ """

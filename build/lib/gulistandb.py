@@ -4,7 +4,7 @@ from reader import reader
 from writter import writter
 
 
-SUPPORTED_DATA_TYPES = ['csv',   'json']
+SUPPORTED_DATA_TYPES = ['csv', 'json']
 
 
 class Table:
@@ -30,7 +30,7 @@ class Table:
 
         self.TableName = tableName
         self.column = column
-        self.__isCalled = False
+        self.mode = True
         # File Type, Default File Type Csv
         self.fileType = fileType.get('fileType', 'csv').lower() if fileType.get(
             'fileType', 'csv') in SUPPORTED_DATA_TYPES else 'csv'
@@ -41,12 +41,16 @@ class Table:
 
         print(
             f"GulistanDB:\t\033[1;32mTable initialized successfully!\n{self.file_path}\033[0m")
-        if not os.path.exists(self.folder_path):
-            self.__commit()
-            return None
-        print("ReInitilized")
+        # if self.mode == True:
+        #     self.commit()
+        #     return None
+        # print("ReInitilized")
 
-    def __commit(self):
+    # def commit_mode(self, mode=False):
+    #     self.mode = mode
+    #     print(self.mode)
+
+    def commit(self):
         self.file_path = f'{os.path.join(os.getcwd(), "Data")}/{self.TableName}.{self.fileType}'
         try:
             if not os.path.exists(self.folder_path):
@@ -91,7 +95,7 @@ class Table:
         self.TableName = newName
         # if fileType:
         #     self.fileType = fileType.get('fileType', csv)
-        self.__commit()
+        self.commit()
         print(
             f"GulistanDB:\t\033[1;33mFile Name REPLACED successfully!\n{self.file_path}\033[0m")
 
@@ -153,8 +157,10 @@ class Table:
             data = file.read()
             return (data)
 
-    def clear(self):
+    def clear(self, ClrTable):
         fileInit(self.fileType, self.file_path, self.column)
+        if ClrTable == True:
+            self.TableName = ""
         return 0
 
     def insert(self, *datas):

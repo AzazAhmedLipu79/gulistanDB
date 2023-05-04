@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: gulistandb
-Version: 0.0.6
+Version: 0.0.10
 Summary: This is a user-friendly local database package designed for beginners. You don't need to know any query language - simply import the package and use its methods according to the documentation. The data will be automatically saved in a CSV file in a 'data' folder within your current working directory. This package is perfect for small-scale projects or for those who are just getting started with beginner python project
-Home-page: https://github.com/AzazAhmedLipu79/GuliStan_DB
+Home-page: https://github.com/AzazAhmedLipu79/gulistanDB/
 Author: Azaz Ahmed Lipu
 Author-email: lipuahmedazaz79@gmail.com
 License: MIT
@@ -70,6 +70,98 @@ Book_Library = Table('Book_Library_NY', 'BookName','ISBN','BookPAGES', fileType=
 | clear  | xyzDB.clear()                                | To clear table file's Data                                  |
 | UPDATE | \_\_\_                                       | Coming Soon                                                 |
 | DELETE | \_\_\_                                       | Coming Soon                                                 |
+
+## Methodopedia
+
+### Create Table:
+
+###### To Create A Table
+
+```python
+# Table(<Table Name>, <*columns>, <**fileType: optional>)
+  BOOK_LIB = Table('MyBookDB','ID','Name','Pages' fileType='json')
+```
+
+1. The Table() class takes a table name, column names, and an optional fileType as arguments.
+2. When called, it creates a new table with the provided name and columns (in the order they were provided), and saves it in JSON or CSV format, depending on the file type specified. If no file type is specified, the default format is CSV.
+3. The table is saved in a 'Data' folder in the current directory.
+
+### Rename:
+
+###### To Rename The Table
+
+```python
+# BOOK_LIB.rename(newName: str, **fileType: optional)
+  BOOK_LIB.rename('OurBookDB')
+```
+
+1. The rename() method of a Table object takes a new name as an argument to rename the table.
+2. If the optional argument fileType is provided, it will also change the format of the table file to the new type. If no file type is provided, the table will be renamed with its current file type.
+3. Note: that this method will delete the previous file and create a new file with the new name and format(if provided), so be sure to use it carefully.
+
+### Drop:
+
+###### To Delete The Table File
+
+```python
+BOOK_LIB.drop()
+```
+
+1. The drop() method of a Table object deletes the file containing the table's data. Use this method with caution, as it will permanently delete the table file and all its contents, with no option for recovery.
+
+### Read
+
+```python
+# BOOK_LIB.read(Oformat:optional='dict')
+
+BOOK_LIB.read(Oformat='dict')
+
+```
+
+1. The read() method is called on a Table object to return the table's data in either dictionary or Pandas DataFrame format.
+2. By default, the method returns the data in the table's file type format, but you can optionally specify a different output format using the Oformat argument (e.g. Oformat='dict').
+3. Note that because this method uses Pandas, it is a very fast way to overview the data
+
+### Get
+
+```python
+BOOK_LIB.get()
+```
+
+1.The get() method of a Table object returns all the data in the table. Note that this is a manual process, so it may be slow for large tables.
+
+### Clear
+
+```python
+BOOK_LIB.clear()
+```
+
+1. The clear() method is called on a Table object to erase all data in its file and reset the file name to its default.
+2. You can also provide the optional argument ClrTable=True to clear the table name as well, which may be necessary in some exceptional cases.
+
+### Insert:
+
+###### To Insert Data
+
+```python
+#For Insert In Json File
+BOOK_LIB.insert({'ID': '101', 'Name': 'Atomic Habits', 'Pages': '327'})
+#For Insert In Csv File
+BOOK_LIB.insert('ID': '101', 'Name': 'Atomic Habits', 'Pages': '327')
+```
+
+1. The insert() method is called on a Table object to add a single record (row) to the file.
+2. The format of the record must be in the appropriate format for the table's file type (e.g. JSON or CSV), and the length of the data being inserted must match the number of columns in the table and be in the correct order.
+3. For JSON files, pass a dictionary to the method containing key-value pairs representing the column names and data for the new record.
+4. For CSV files, pass a string with the column data separated by commas in the same order as the table's columns.
+
+#### UPDATE
+
+Coming Soon...
+
+#### DELETE RECORD
+
+Coming Soon...
 
 ## License
 
