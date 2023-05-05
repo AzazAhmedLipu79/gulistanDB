@@ -39,17 +39,5 @@ def writter(file_path: str, fileType: str, datas: list):
         print(
             f"GulistanDB:\t\033[1;32m\n{new_df}\nINSERTED successfully!\033[0m")
 
-    elif fileType == 'csv':
-        with open(file_path, 'a') as f:
-            f.write('\n')
-            for i, data in enumerate(datas):
-                f.write(data)
-                if i == len(datas)-1:
-                    break
-                    # continue
-                else:
-                    f.write(',')
-        print("INSERTED CSV")
-
     else:
         print("SOMETHING WRONG IN FILE TYPE")

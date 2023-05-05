@@ -57,3 +57,13 @@ thisdict = {
     "year": 2020
 }
 print(len("222"))
+
+
+print(f'ABCD\bEFGH')
+
+
+def a(**f):
+    print(f)
+
+
+a(fileName="jsjs", OP="sss")

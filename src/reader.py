@@ -23,15 +23,10 @@ def reader(fileType: str, file_path: str, Oformat: str):
     if fileType == 'json':
         df = pd.read_json(file_path, encoding='utf-8')
         if Oformat == 'dict':
-            data_dict = df.to_dict('records')
-            return data_dict
-        return df
+            return df.to_dict('records')
+        elif Oformat == 'csv':
+            return df.to_csv()
 
-    elif fileType == 'csv':
-        df = pd.read_csv(file_path, encoding='ISO-8859-1')
-        if Oformat == 'dict':
-            data_dict = df.to_dict('records')
-            return data_dict
         return df
 
     else:

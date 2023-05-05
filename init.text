@@ -1,5 +1,10 @@
+- REVIEW CSV FORMAT
+- PHOTOCOPY MODE
+
+
+
 1/ Choosing File Type - Where Data / Information will Saved (Csv,Txt,Tsv,db)
-SELECTED: CSV 
+SELECTED: CSV ,JSON
 2/ WorkFlow Decide 
 
 """

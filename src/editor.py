@@ -1,3 +1,7 @@
+import shutil
+import os
+
+
 def fileInit(file_type: str, file_path: str, columns: tuple):
     """ 
         Create a new file of the specified type if it doesn't exist, and write a header row if the file is a CSV.
@@ -23,11 +27,29 @@ def fileInit(file_type: str, file_path: str, columns: tuple):
     elif file_type == 'xlsv':
         pass
     else:
-        with open(file_path, 'w', encoding='utf-8') as f:
-            for i, key in enumerate(columns):
-                f.write(key)
-                if i == len(columns)-1:
-                    break
+        print("SOMETHING WRONG IN FILE TYPE - editor.py")
 
-                else:
-                    f.write(',')
+
+def fileCopy(file_path: str, Folder_Name: str, File_Prefix: str):
+
+    try:
+        # Create the target directory if it doesn't exist
+        target_dir = os.path.join(os.getcwd(), Folder_Name)
+        if not os.path.exists(target_dir):
+            os.mkdir(target_dir)
+
+        # Copy the file with a new filename
+        new_file_path = os.path.join(
+            target_dir, f"{File_Prefix}-{os.path.basename(file_path)}")
+        shutil.copy(file_path, new_file_path)
+
+        print("ALL GOOD COPY")
+    except FileNotFoundError as fnfe:
+        print(f"File not found error: {fnfe}")
+        print("SOMETHING WENT WRONG IN FILE COPY")
+    except PermissionError as pe:
+        print(f"Permission error: {pe}")
+        print("SOMETHING WENT WRONG IN FILE COPY")
+    except Exception as e:
+        print(f"Error copying file: {e}")
+        print("SOMETHING WENT WRONG IN FILE COPY")

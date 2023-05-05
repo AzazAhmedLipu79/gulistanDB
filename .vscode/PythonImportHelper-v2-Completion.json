@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "fileCopy",
+        "importPath": "editor",
+        "description": "editor",
+        "isExtraImport": true,
+        "detail": "editor",
+        "documentation": {}
+    },
+    {
         "label": "reader",
         "importPath": "reader",
         "description": "reader",
@@ -63,6 +71,15 @@
         "importPath": "pandas",
         "description": "pandas",
         "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
         "documentation": {}
     },
     {
@@ -136,6 +153,15 @@
         "documentation": {}
     },
     {
+        "label": "fileCopy",
+        "kind": 2,
+        "importPath": "src.editor",
+        "description": "src.editor",
+        "peekOfCode": "def fileCopy(file_path: str, Folder_Name: str, File_Prefix: str):\n    try:\n        # Create the target directory if it doesn't exist\n        target_dir = os.path.join(os.getcwd(), Folder_Name)\n        if not os.path.exists(target_dir):\n            os.mkdir(target_dir)\n        # Copy the file with a new filename\n        new_file_path = os.path.join(\n            target_dir, f\"{File_Prefix}-{os.path.basename(file_path)}\")\n        shutil.copy(file_path, new_file_path)",
+        "detail": "src.editor",
+        "documentation": {}
+    },
+    {
         "label": "Table",
         "kind": 6,
         "importPath": "src.gulistandb",
@@ -149,16 +175,7 @@
         "kind": 5,
         "importPath": "src.gulistandb",
         "description": "src.gulistandb",
-        "peekOfCode": "SUPPORTED_DATA_TYPES = ['csv', 'json']\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType: str) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
-        "detail": "src.gulistandb",
-        "documentation": {}
-    },
-    {
-        "label": "h",
-        "kind": 5,
-        "importPath": "src.gulistandb",
-        "description": "src.gulistandb",
-        "peekOfCode": "h = Table('hDB', 'a', 'b', fileType='json')\nh.commit()\nh.insert_one({'a': 'Python Diye Data Stucture', 'b': '2'})\nh.insert_many({'a': 'Python Diye Data Stucture', 'b': '3'}, {\n              'a': 'Python Diye Data Stucture', 'b': '4'}, {'a': 'Python Diye Data Stucture', 'b': '5'}, {'a': 'Python Diye Data Stucture', 'c': '6'})\n \"\"\"",
+        "peekOfCode": "SUPPORTED_DATA_TYPES = ['json']  # csv removed\nclass Table:\n    def __init__(self, tableName: str, *column, **fileType: str) -> None:\n        \"\"\"\n    Initialize a new table with the specified name, columns and file type.\n    Args:\n        tableName: A string representing the name of the table to create.\n        column: A variable-length argument list of strings representing the names of the columns to create.\n        fileType: Keyword arguments specifying the file type to use and any other options. Valid options are 'csv'.\n    Returns:",
         "detail": "src.gulistandb",
         "documentation": {}
     },
@@ -190,6 +207,15 @@
         "documentation": {}
     },
     {
+        "label": "a",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def a(**f):\n    print(f)\na(fileName=\"jsjs\", OP=\"sss\")",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
         "label": "SUPPORTED_DATA_TYPES",
         "kind": 5,
         "importPath": "test",
@@ -212,7 +238,7 @@
         "kind": 5,
         "importPath": "test",
         "description": "test",
-        "peekOfCode": "thisdict = {\n    \"brand\": \"Ford\",\n    \"model\": \"Mustang\",\n    \"year\": 1964,\n    \"year\": 2020\n}\nprint(len(\"222\"))",
+        "peekOfCode": "thisdict = {\n    \"brand\": \"Ford\",\n    \"model\": \"Mustang\",\n    \"year\": 1964,\n    \"year\": 2020\n}\nprint(len(\"222\"))\nprint(f'ABCD\\bEFGH')\ndef a(**f):\n    print(f)",
         "detail": "test",
         "documentation": {}
     }
